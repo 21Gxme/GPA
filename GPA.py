@@ -25,8 +25,9 @@ class GPA_Calculator:
             credit_entry.grid(row=i, column=1)
 
             # create drop-down menu for grade options
-            grade_options = ["", "A (4.00)", "B+ (3.50)", "B (3.00)", "C+ (2.50)",
-                             "C (2.00)", "D+ (1.50)", "D (1.00)", "F (0.00)"]
+            grade_options = ["", "A (4.00)", "B+ (3.50)", "B (3.00)",
+                             "C+ (2.50)", "C (2.00)", "D+ (1.50)", "D (1.00)",
+                             "F (0.00)"]
             grade_var = tk.StringVar(value=grade_options[0])
             grade_menu = ttk.Combobox(self.master, values=grade_options,
                                       width=7,
@@ -75,7 +76,8 @@ class GPA_Calculator:
             gpa = round(total_grade_points / total_credits, 2)
             self.gpa_label.config(text=f"Your GPA is {gpa}")
 
-    def convert_grade(self, grade_str):
+    @staticmethod
+    def convert_grade(grade_str):
         if grade_str == "A (4.00)":
             return 4.00
         elif grade_str == "B+ (3.50)":
