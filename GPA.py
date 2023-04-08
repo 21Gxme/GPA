@@ -62,12 +62,11 @@ class GPA_Calculator:
         total_grade_points = 0
 
         for i in range(10):
-            subject_name = self.subjects[i].get()
             credit_str = self.credits[i].get()
             grade_str = self.grades[i].get()
 
-            if subject_name and credit_str and grade_str:
-                credit_hours = int(credit_str)
+            if credit_str and grade_str:
+                credit_hours = float(credit_str)
                 grade = self.convert_grade(grade_str)
                 total_credits += credit_hours
                 total_grade_points += credit_hours * grade
